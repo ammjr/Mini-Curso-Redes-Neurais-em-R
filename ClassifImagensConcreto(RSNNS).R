@@ -4,9 +4,9 @@
 # Data: 16/01/21
 # =============================================================
 # A abordagem adotada utiliza os valores dos pixels diretamente como variáveis de entrada.
-# O ideal seria extrair informações das imagens (como texturas) e utilizar essas informações
-# como entrada ou utilizar CNNs para a classificação de imagens. Entretanto o resultado obtido
-# é satisfatório.
+# O ideal seria extrair informações das imagens (como texturas, por exemplo) e utilizar essas informações
+# como entrada ou utilizar CNNs para a classificação de imagens. 
+# Entretanto o resultado obtido é satisfatório.
 # ==============================================================
 
 
