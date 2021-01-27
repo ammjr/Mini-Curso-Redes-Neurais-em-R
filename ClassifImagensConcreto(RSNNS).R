@@ -17,9 +17,9 @@ library(RSNNS) # Carrega o pacote p/ trabalhar com RNAs
 # Diretorio Base onde estão as pastas
 diret_base <- 'C:/Users/jrjpm/Desktop/Cursos Ministrados/RNA v2.0/Datasets/Concrete-Crack-Images-for-Classification/Treino'
 
-# Distagem das subpastas que estão no diretório base
+# Listagem das subpastas que estão no diretório base
 list_diret <- list.dirs(diret_base, recursive = F)
-dim_image <- 2 # Dimensões  das imagens  (que se deseja trabalhar) (2 p/ PB e 3 p/ colorida)
+dim_image <- 2 # Tipo  das imagens  (que se deseja trabalhar) (2 p/ PB e 3 p/ colorida)
 porct_utilizada <- 0.05 # Porcentagem do dataset a ser utilizado
 
 
@@ -38,7 +38,7 @@ for (i in 1:length(list_diret)){
 }
 
 
-# Se quer a imagem for em PB
+# Se quer a imagem em PB
 if (dim_image==2){
    # Lê e carrega as imagens, transforma pra escala de cinza e aplica redimensionamento 
    arquivos <- list_arqt %>% lapply(load.image) %>% lapply(grayscale) %>% lapply(resize, size_x = 22, size_y = 22)
@@ -98,14 +98,14 @@ rm(list=setdiff(ls(), c("dados","targets")))
 
 
 
-# toma uma "amostra" aleatoria do tamanho do dataset utilizado
+# Toma uma "amostra" aleatoria do tamanho do dataset utilizado
 # na prática, isso serve apenas para embaralhar os dados
 # a variavel indice receberá valores de 1 ao número de amostras, 
 # dipostos de forma aleatoria
 indices <- sample(1:nrow(dados), nrow(dados))
 
 
-# pega os valores do dataset, utilizando a variavel "indices" como indice das linhas
+# Pega os valores do dataset, utilizando a variavel "indices" como indice das linhas
 # do dataset (embaralhando os dados)
 dataValues <- dados[indices, ]
 
@@ -114,11 +114,11 @@ dataValues <- dados[indices, ]
 targets <- decodeClassLabels(targets)
 dataTargets <- targets[indices, ]
 
-# divide o dataset entre dados de treinamento e teste
+# Divide o dataset entre dados de treinamento e teste
 # ratio é a proporcao de dados para teste
 dataset <- splitForTrainingAndTest(dataValues, dataTargets, ratio = 0.15)
 
-# normaliza os valores do dataset (por default, targets NÃO são normalizados)
+# Normaliza os valores do dataset (por default, targets NÃO são normalizados)
 dataset <- normTrainingAndTestSet(dataset, type = "0_1")
 
 #RSNNS::getSnnsRFunctionTable()  -> retorna uma lista de funções do pacote RSNNS
@@ -218,7 +218,7 @@ qtde_amostras_image_teste <- length(image_teste)
 # de variáveis)
 dados_image_teste <- matrix(nrow = qtde_amostras_image_teste, ncol= qtde_var_image_teste*1)
 
-#se fosse uma imagem RGB seria [,,]
+# Se for uma imagem RGB seria [,,], se for PeB [,]
 aux_image = image_teste[[1]][ , ] 
 # transforma a matriz (de pixels) em um vetor (uma única linha)
 aux_image = t(as.vector(aux_image))
