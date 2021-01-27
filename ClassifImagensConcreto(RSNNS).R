@@ -1,4 +1,4 @@
-# Dataset composto por imagens de diferentes frutas
+# Dataset composto por imagens de superfíceis de concreto c/ e sem rachaduras
 # Dataset disponível em: https://www.kaggle.com/arunrk7/surface-crack-detection
 # Autor: Antonio Mendes
 # Data: 16/01/21
