@@ -28,7 +28,7 @@ targets <- c()
 list_arqt <- c()
 
 # Faz as leituras das pastas e lista os arquivos e 
-# seus endereços
+# seus endereços (ATENTE-SE AO FORMATO DAS IMAGENS)
 for (i in 1:length(list_diret)){   
    list_arq <- list.files(path = list_diret[i],
                           pattern = "*.jpg" ,
