@@ -99,8 +99,8 @@ plotROC(fitted.values(model), dataset$targetsTrain)
 plotROC(predictions, dataset$targetsTest)
 
 # matrizes de confusão (diagonal são os acertos)
-(mc_treino <- confusionMatrix(dataset$targetsTrain, fitted.values(model)))
-(mc_teste <- confusionMatrix(dataset$targetsTest, predictions))
+(mc_treino <- RSNNS::confusionMatrix(dataset$targetsTrain, fitted.values(model)))
+(mc_teste <- RSNNS::confusionMatrix(dataset$targetsTest, predictions))
 
 # nível de acerto (dados de teste)
 (nivel_acerto <- sum(diag(mc_teste))/sum(mc_teste))
