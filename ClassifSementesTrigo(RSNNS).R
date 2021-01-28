@@ -69,8 +69,8 @@ pROC::roc(data_test_code ~ resp_test_code,
           auc.polygon=T, grid=TRUE, legacy.axes=T,
           ci = T)
 
-(mc_treino <- confusionMatrix(dataset$targetsTrain, fitted.values(model)))
-(mc_teste <- confusionMatrix(dataset$targetsTest, predictions))
+(mc_treino <- RSNNS::confusionMatrix(dataset$targetsTrain, fitted.values(model)))
+(mc_teste <- RSNNS::confusionMatrix(dataset$targetsTest, predictions))
 
 
 (nivel_acerto <- sum(diag(mc_teste))/sum(mc_teste))
